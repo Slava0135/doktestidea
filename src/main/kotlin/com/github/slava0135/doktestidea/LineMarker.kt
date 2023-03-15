@@ -4,18 +4,21 @@ import com.intellij.codeInsight.daemon.LineMarkerInfo
 import com.intellij.codeInsight.daemon.LineMarkerProvider
 import com.intellij.openapi.editor.markup.GutterIconRenderer
 import com.intellij.psi.PsiElement
-import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.icons.AllIcons
+import com.intellij.psi.util.elementType
 import java.util.function.Supplier
 
 class LineMarker : LineMarkerProvider {
     override fun getLineMarkerInfo(element: PsiElement): LineMarkerInfo<*>? {
-        if (element !is LeafPsiElement || element.elementType.toString() != "KDOC_CODE_BLOCK_TEXT") {
+        if (element.elementType.toString() != "KDOC_TEXT") {
+            return null
+        }
+        if (!element.text.trimStart().startsWith("```kotlin doctest")) {
             return null
         }
         return LineMarkerInfo(
             element,
-            element.getTextRange(),
+            element.textRange,
             AllIcons.Actions.Execute,
             null,
             null,
