@@ -36,10 +36,10 @@ private class NavigationHandler : GutterIconNavigationHandler<PsiElement> {
     override fun navigate(e: MouseEvent, elt: PsiElement) {
         if (e.id == MouseEvent.MOUSE_RELEASED) {
             val project = elt.containingFile.project
-            val path = elt.containingFile.virtualFile.path
+            val workDirectory = project.basePath ?: return
+            val path = elt.containingFile.virtualFile.path.removePrefix(workDirectory)
             val line = elt.getLineNumber() + 1
             val commandLine = "doktest --file $path --line $line"
-            val workDirectory = project.basePath ?: return
             GradleExecuteTaskAction.runGradle(project, null, workDirectory, commandLine)
         }
     }
