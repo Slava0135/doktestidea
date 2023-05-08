@@ -1,4 +1,4 @@
-package com.github.slava0135.doktestidea
+package io.github.slava0135.doktestidea
 
 import com.intellij.codeInsight.daemon.GutterIconNavigationHandler
 import com.intellij.codeInsight.daemon.LineMarkerInfo
