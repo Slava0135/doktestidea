@@ -12,7 +12,7 @@ import java.awt.event.MouseEvent
 import java.util.function.Supplier
 import org.jetbrains.plugins.gradle.action.GradleExecuteTaskAction
 
-class LineMarker : LineMarkerProvider {
+class DoctestLineMarker : LineMarkerProvider {
     override fun getLineMarkerInfo(element: PsiElement): LineMarkerInfo<*>? {
         if (element.elementType.toString() != "KDOC_TEXT") {
             return null
