@@ -32,5 +32,7 @@
         <annotator
                 implementationClass="io.github.slava0135.doktestidea.DoctestAnnotator"
                 language="kotlin"/>
+        <spellchecker.dictionary.runtimeDictionaryProvider
+                implementation="io.github.slava0135.doktestidea.DoctestDictionaryProvider"/>
     </extensions>
 </idea-plugin>
