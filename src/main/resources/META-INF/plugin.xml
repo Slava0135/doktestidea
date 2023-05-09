@@ -27,7 +27,10 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <codeInsight.lineMarkerProvider
-                implementationClass="io.github.slava0135.doktestidea.LineMarker"
+                implementationClass="io.github.slava0135.doktestidea.DoctestLineMarker"
+                language="kotlin"/>
+        <annotator
+                implementationClass="io.github.slava0135.doktestidea.DoctestAnnotator"
                 language="kotlin"/>
     </extensions>
 </idea-plugin>
