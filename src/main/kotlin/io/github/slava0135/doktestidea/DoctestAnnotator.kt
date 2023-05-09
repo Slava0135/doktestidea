@@ -55,6 +55,13 @@ class DoctestAnnotator : Annotator {
             .create()
 
         val optIndex = sepIndex + 1
+        if (element.text.length <= optIndex) {
+            holder.newAnnotation(HighlightSeverity.WARNING, "No option provided, expected one of following: ${DOCTEST_OPTIONS.keys}")
+                .range(sepRange)
+                .create()
+            return
+        }
+
         for ((opt, msg) in DOCTEST_OPTIONS) {
             if (element.text.startsWith(opt, optIndex, ignoreCase = true)) {
                 val optRange = TextRange.from(element.textRange.startOffset + optIndex, opt.length)
@@ -66,7 +73,7 @@ class DoctestAnnotator : Annotator {
             }
         }
 
-        val unknownRange = TextRange.from(element.textRange.startOffset + optIndex, 1)
+        val unknownRange = TextRange.from(element.textRange.startOffset + optIndex, element.textRange.length - optIndex)
         holder.newAnnotation(HighlightSeverity.WARNING, "Unknown option, expected one of following: ${DOCTEST_OPTIONS.keys}")
             .range(unknownRange)
             .create()
