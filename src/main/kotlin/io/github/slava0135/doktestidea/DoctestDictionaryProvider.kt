@@ -8,7 +8,7 @@ class DoctestDictionaryProvider : RuntimeDictionaryProvider {
 }
 
 class DoctestDictionary : Dictionary {
-    private val dict = DOCTEST_OPTIONS.keys + setOf("doctest")
+    private val dict = DOCTEST_OPTIONS.keys + setOf(DOCTEST_PREFIX)
 
     override fun getName() = "Doktest dictionary"
     override fun contains(word: String) = word.lowercase() in dict
