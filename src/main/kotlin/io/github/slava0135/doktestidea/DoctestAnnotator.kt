@@ -21,18 +21,14 @@ class DoctestAnnotator : Annotator {
             .create()
 
         val sepIndex = prefixIndex + DOCTEST_PREFIX.length
-        if (element.text.length <= sepIndex) {
+        if (element.text.length <= sepIndex || element.text[sepIndex].isWhitespace()) {
             return
         }
-        if (element.text[sepIndex] != DOCTEST_SEP && !element.text[sepIndex].isWhitespace()) {
+        if (element.text[sepIndex] != DOCTEST_SEP) {
             val unknownRange = TextRange.from(element.textRange.startOffset + sepIndex, 1)
             holder.newAnnotation(HighlightSeverity.WARNING, "Unknown symbol, expected ' $DOCTEST_SEP ' or next word/line")
                 .range(unknownRange)
                 .create()
-            return
-        }
-
-        if (element.text[sepIndex].isWhitespace()) {
             return
         }
 
