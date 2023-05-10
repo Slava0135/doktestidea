@@ -19,3 +19,7 @@ fun isDoctestHeader(context: PsiElement): Boolean {
     }
     return context.text.trimStart().startsWith(CODE_BLOCK_PREFIX + DOCTEST_PREFIX, ignoreCase = true)
 }
+
+fun isDoctest(context: PsiElement): Boolean {
+    return context.elementType.toString() == "KDOC_CODE_BLOCK_TEXT"
+}
