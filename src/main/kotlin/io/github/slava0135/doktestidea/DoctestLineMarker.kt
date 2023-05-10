@@ -6,7 +6,6 @@ import com.intellij.codeInsight.daemon.LineMarkerProvider
 import com.intellij.icons.AllIcons
 import com.intellij.openapi.editor.markup.GutterIconRenderer
 import com.intellij.psi.PsiElement
-import com.intellij.psi.util.elementType
 import org.jetbrains.kotlin.idea.core.util.getLineNumber
 import java.awt.event.MouseEvent
 import java.util.function.Supplier
@@ -14,10 +13,7 @@ import org.jetbrains.plugins.gradle.action.GradleExecuteTaskAction
 
 class DoctestLineMarker : LineMarkerProvider {
     override fun getLineMarkerInfo(element: PsiElement): LineMarkerInfo<*>? {
-        if (element.elementType.toString() != "KDOC_TEXT") {
-            return null
-        }
-        if (!element.text.trimStart().startsWith("```kotlin doctest")) {
+        if (!isDoctestHeader(element)) {
             return null
         }
         return LineMarkerInfo(

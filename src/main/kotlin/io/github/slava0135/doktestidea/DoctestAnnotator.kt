@@ -6,31 +6,14 @@ import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
-import com.intellij.psi.util.elementType
-
-const val CODE_BLOCK_PREFIX = "```kotlin "
-const val DOCTEST_PREFIX = "doctest"
-const val DOCTEST_SEP = ':'
-
-val DOCTEST_OPTIONS = mapOf(
-    "run" to "Run this code as if it was put in 'main' function",
-    "norun" to "Compile this code as if it was put in 'main' function",
-    "nomain" to "Compile this code as is"
-)
 
 class DoctestAnnotator : Annotator {
     override fun annotate(element: PsiElement, holder: AnnotationHolder) {
-        if (element.elementType.toString() != "KDOC_TEXT") {
-            return
-        }
-        if (!element.text.trimStart().startsWith(CODE_BLOCK_PREFIX, ignoreCase = true)) {
+        if (!isDoctestHeader(element)) {
             return
         }
 
         val prefixIndex = element.text.indexOf(DOCTEST_PREFIX, ignoreCase = true)
-        if (prefixIndex < 0) {
-            return
-        }
         val prefixRange = TextRange.from(element.textRange.startOffset + prefixIndex, DOCTEST_PREFIX.length)
         holder.newAnnotation(HighlightSeverity.INFORMATION, "Mark this code block as documentation test")
             .range(prefixRange)
