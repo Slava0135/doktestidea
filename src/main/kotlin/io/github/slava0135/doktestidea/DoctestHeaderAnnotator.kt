@@ -4,8 +4,11 @@ import com.intellij.lang.annotation.AnnotationHolder
 import com.intellij.lang.annotation.Annotator
 import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors
+import com.intellij.openapi.editor.colors.TextAttributesKey
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
+
+val DEFAULT_ATTRIBUTE: TextAttributesKey = DefaultLanguageHighlighterColors.FUNCTION_DECLARATION
 
 class DoctestHeaderAnnotator : Annotator {
     override fun annotate(element: PsiElement, holder: AnnotationHolder) {
@@ -14,10 +17,17 @@ class DoctestHeaderAnnotator : Annotator {
         }
 
         val prefixIndex = element.text.indexOf(DOCTEST_PREFIX, ignoreCase = true)
+
+        val codeFenceRange = TextRange.from(element.textRange.startOffset, prefixIndex - 1)
+        holder.newSilentAnnotation(HighlightSeverity.INFORMATION)
+            .range(codeFenceRange)
+            .textAttributes(DEFAULT_ATTRIBUTE)
+            .create()
+
         val prefixRange = TextRange.from(element.textRange.startOffset + prefixIndex, DOCTEST_PREFIX.length)
         holder.newAnnotation(HighlightSeverity.INFORMATION, "Mark this code block as documentation test")
             .range(prefixRange)
-            .textAttributes(DefaultLanguageHighlighterColors.KEYWORD)
+            .textAttributes(DEFAULT_ATTRIBUTE)
             .create()
 
         val sepIndex = prefixIndex + DOCTEST_PREFIX.length
@@ -51,7 +61,7 @@ class DoctestHeaderAnnotator : Annotator {
                 val optRange = TextRange.from(element.textRange.startOffset + optIndex, opt.length)
                 holder.newAnnotation(HighlightSeverity.INFORMATION, msg)
                     .range(optRange)
-                    .textAttributes(DefaultLanguageHighlighterColors.KEYWORD)
+                    .textAttributes(DEFAULT_ATTRIBUTE)
                     .create()
                 return
             }
