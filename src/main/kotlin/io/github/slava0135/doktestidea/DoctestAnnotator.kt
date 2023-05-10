@@ -31,6 +31,11 @@ class DoctestAnnotator : Annotator {
                 .create()
             return
         }
+
+        if (element.text[sepIndex].isWhitespace()) {
+            return
+        }
+
         val sepRange = TextRange.from(element.textRange.startOffset + sepIndex, 1)
         holder.newSilentAnnotation(HighlightSeverity.INFORMATION)
             .range(sepRange)
