@@ -7,7 +7,7 @@ import com.intellij.openapi.editor.DefaultLanguageHighlighterColors
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
 
-class DoctestAnnotator : Annotator {
+class DoctestHeaderAnnotator : Annotator {
     override fun annotate(element: PsiElement, holder: AnnotationHolder) {
         if (!isDoctestHeader(element)) {
             return

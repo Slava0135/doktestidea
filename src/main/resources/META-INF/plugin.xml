@@ -30,7 +30,7 @@
                 implementationClass="io.github.slava0135.doktestidea.DoctestLineMarker"
                 language="kotlin"/>
         <annotator
-                implementationClass="io.github.slava0135.doktestidea.DoctestAnnotator"
+                implementationClass="io.github.slava0135.doktestidea.DoctestHeaderAnnotator"
                 language="kotlin"/>
         <spellchecker.dictionary.runtimeDictionaryProvider
                 implementation="io.github.slava0135.doktestidea.DoctestDictionaryProvider"/>
