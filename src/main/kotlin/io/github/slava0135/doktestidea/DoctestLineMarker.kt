@@ -5,8 +5,9 @@ import com.intellij.codeInsight.daemon.LineMarkerInfo
 import com.intellij.codeInsight.daemon.LineMarkerProvider
 import com.intellij.icons.AllIcons
 import com.intellij.openapi.editor.markup.GutterIconRenderer
+import com.intellij.psi.PsiDocumentManager
 import com.intellij.psi.PsiElement
-import org.jetbrains.kotlin.idea.core.util.getLineNumber
+import org.jetbrains.kotlin.psi.psiUtil.startOffset
 import java.awt.event.MouseEvent
 import java.util.function.Supplier
 import org.jetbrains.plugins.gradle.action.GradleExecuteTaskAction
@@ -34,7 +35,8 @@ private class NavigationHandler : GutterIconNavigationHandler<PsiElement> {
             val project = elt.containingFile.project
             val workDirectory = project.basePath ?: return
             val path = elt.containingFile.virtualFile.path.removePrefix(workDirectory)
-            val line = elt.getLineNumber() + 1
+            val document = PsiDocumentManager.getInstance(project).getDocument(elt.containingFile) ?: return
+            val line = document.getLineNumber(elt.startOffset) + 1
             val commandLine = "doktest --file $path --line $line"
             GradleExecuteTaskAction.runGradle(project, null, workDirectory, commandLine)
         }
