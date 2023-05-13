@@ -6,17 +6,16 @@ import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
-import org.jetbrains.kotlin.idea.KotlinLanguage
-import org.jetbrains.kotlin.idea.highlighter.KotlinSyntaxHighlighterFactory
+import org.jetbrains.kotlin.idea.highlighter.KotlinHighlighter
 
 class DoctestAnnotator : Annotator {
+    private val highlighter = KotlinHighlighter()
     override fun annotate(element: PsiElement, holder: AnnotationHolder) {
         if (isDoctest(element)) {
             holder.newSilentAnnotation(HighlightSeverity.INFORMATION)
                 .range(element.textRange)
                 .textAttributes(DefaultLanguageHighlighterColors.IDENTIFIER)
                 .create()
-            val highlighter = KotlinSyntaxHighlighterFactory.getSyntaxHighlighter(KotlinLanguage.INSTANCE, null, null)
             val lexer = highlighter.highlightingLexer
             lexer.start(element.text)
             val offset = element.textRange.startOffset
