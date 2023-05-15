@@ -14,7 +14,12 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    IDE support for running doktest gradle plugin<br>
+        IDE support for <a href="https://github.com/Slava0135/doktest">Doktest</a> plugin that verifies your Kotlin code inside KDoc comments:
+        <ul>
+          <li>Kotlin code highlighting inside KDoc code blocks</li>
+          <li>Doctest heading syntax highlighting and warning annotations</li>
+          <li>Run single doctest by pressing a button next to it</li>
+        </ul>
   ]]></description>
 
     <!-- Product and plugin compatibility requirements.
