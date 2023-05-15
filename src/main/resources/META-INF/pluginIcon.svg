@@ -1,12 +1,93 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M32.0845 7.94025V4H24.0203V7.9896H16.029V4H7.91553V7.94025H4V36H16.0044V32.0045C16.0058 30.9457 16.4274 29.9308 17.1766 29.1826C17.9258 28.4345 18.9412 28.0143 20 28.0143C21.0588 28.0143 22.0743 28.4345 22.8234 29.1826C23.5726 29.9308 23.9942 30.9457 23.9956 32.0045V36H36V7.94025H32.0845Z"
-          fill="url(#paint0_linear)"/>
-    <defs>
-        <linearGradient id="paint0_linear" x1="2.94192" y1="4.89955" x2="37.7772" y2="39.7345"
-                        gradientUnits="userSpaceOnUse">
-            <stop offset="0.15937" stop-color="#3BEA62"/>
-            <stop offset="0.5404" stop-color="#3C99CC"/>
-            <stop offset="0.93739" stop-color="#6B57FF"/>
-        </linearGradient>
-    </defs>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="40px"
+   height="40px"
+   viewBox="0 0 40 40"
+   version="1.1"
+   id="SVGRoot"
+   sodipodi:docname="pluginIcon.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="5.943771"
+     inkscape:cx="23.806435"
+     inkscape:cy="1.1777035"
+     inkscape:window-width="1920"
+     inkscape:window-height="1015"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid6" />
+  </sodipodi:namedview>
+  <defs
+     id="defs9" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="fill:#000000;font-size:5.33333333px"
+       x="13.942496"
+       y="12.295567"
+       id="text182"><tspan
+         sodipodi:role="line"
+         id="tspan180" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.33333px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono';fill:#b3b3b3"
+       x="3.3609681"
+       y="11.777357"
+       id="text198"><tspan
+         sodipodi:role="line"
+         id="tspan196"
+         x="3.3609681"
+         y="11.777357"
+         style="font-weight:bold;font-size:9.33333px;fill:#b3b3b3">/**</tspan><tspan
+         sodipodi:role="line"
+         x="3.3609681"
+         y="23.444019"
+         id="tspan200"
+         style="font-weight:bold;font-size:9.33333px;fill:#b3b3b3"> * </tspan><tspan
+         sodipodi:role="line"
+         x="3.3609681"
+         y="35.110683"
+         id="tspan202"
+         style="font-weight:bold;font-size:9.33333px;fill:#b3b3b3"> */</tspan></text>
+    <path
+       sodipodi:type="star"
+       style="fill:#44aa00"
+       id="path578"
+       inkscape:flatsided="true"
+       sodipodi:sides="3"
+       sodipodi:cx="23.975716"
+       sodipodi:cy="15.175668"
+       sodipodi:r1="7.8777947"
+       sodipodi:r2="3.9388974"
+       sodipodi:arg1="0"
+       sodipodi:arg2="1.0471976"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 31.85351,15.175668 -11.816692,6.82237 0,-13.6447406 z"
+       inkscape:transform-center-x="-2.3252416"
+       transform="matrix(1.1806565,0,0,1.1806565,-1.6463632,2.0304657)" />
+  </g>
 </svg>
